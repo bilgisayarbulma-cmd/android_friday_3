@@ -1,0 +1,47 @@
+name: Friday APK Derle
+
+# Bu workflow, GitHub'a kod yuklendiginde (push) veya elle tetiklendiginde
+# (workflow_dispatch) otomatik olarak APK derler. Boylece Android Studio
+# kurmadan, sadece GitHub'in ucretsiz sunucularini kullanarak kurulabilir
+# bir APK dosyasi elde edilir.
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kodu indir
+        uses: actions/checkout@v4
+
+      - name: Java 17 kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Gradle wrapper jar'ı tamamla (eksikse)
+        run: |
+          if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
+            echo "gradle-wrapper.jar bulunamadı, Gradle kuruluyor ve wrapper tamamlanıyor..."
+            curl -sL -o gradle-temp.zip https://services.gradle.org/distributions/gradle-8.7-bin.zip
+            unzip -q gradle-temp.zip
+            ./gradle-8.7/bin/gradle wrapper --gradle-version 8.7
+            rm -rf gradle-temp.zip gradle-8.7
+          fi
+
+      - name: Gradle wrapper'a calistirma izni ver
+        run: chmod +x ./gradlew
+
+      - name: Debug APK derle
+        run: ./gradlew assembleDebug
+
+      - name: APK'yi indirilebilir hale getir
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
