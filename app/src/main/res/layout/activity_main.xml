@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_main">
+
+    <!-- Ust bar: baslik + durum -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_panel"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="F.R.I.D.A.Y"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="@string/settings_title" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/status_idle"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp"
+            android:fontFamily="monospace" />
+    </LinearLayout>
+
+    <!-- Orta: F.R.I.D.A.Y logosu (canvas View) -->
+    <com.friday.assistant.FridayLogoView
+        android:id="@+id/logoView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+    <!-- Konusma gecmisi -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/conversationList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+    <!-- Yazili komut kutusu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/textInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_text_input"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_dim"
+            android:background="@drawable/bg_input_field"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:inputType="text"
+            android:imeOptions="actionSend" />
+
+        <ImageButton
+            android:id="@+id/sendButton"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_send"
+            android:contentDescription="@string/send_button" />
+    </LinearLayout>
+
+    <!-- Alt: mikrofon kontrol butonu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_panel"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/micButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mic_button_off"
+            android:textColor="@color/friday_green"
+            android:backgroundTint="@color/bg_panel"
+            android:fontFamily="monospace"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

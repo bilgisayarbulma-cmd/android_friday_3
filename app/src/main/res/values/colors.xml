@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_main">#050A0F</color>
+    <color name="bg_panel">#0A1015</color>
+    <color name="border">#16332A</color>
+
+    <color name="friday_green">#1D9E75</color>
+    <color name="friday_orange">#EF9F27</color>
+    <color name="friday_red">#E24B4A</color>
+
+    <color name="text_primary">#CFEEDE</color>
+    <color name="text_dim">#5F6B66</color>
+    <color name="text_white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,60 @@
+// App modulu yapilandirmasi: SDK versiyonlari, paket adi ve gerekli kutuphaneler
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.friday.assistant'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.friday.assistant"
+        minSdk 26          // Android 8.0+ (ses/izin API'leri icin guvenli alt sinir)
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Temel Android/Kotlin kutuphaneleri
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+
+    // Coroutines: asenkron Gemini API cagrilari icin
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+
+    // Ag istekleri (Gemini REST API, hava durumu vb.)
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'org.json:json:20240303'
+
+    // Yasam dongusu / ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.4'
+
+    // SharedPreferences sarmalayici - hafiza/ayarlar icin
+    implementation 'androidx.datastore:datastore-preferences:1.1.1'
+}

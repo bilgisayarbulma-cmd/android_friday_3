@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Mikrofon: sesli komut almak icin -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Internet: Gemini API, hava durumu, vb. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Kamera: gorsel analiz/OCR icin -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Konum: hava durumu icin yaklasik konum -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Friday"
+        android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title" />
+
+    </application>
+
+</manifest>

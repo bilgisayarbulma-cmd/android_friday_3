@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Friday</string>
+    <string name="settings_title">Friday Ayarları</string>
+    <string name="mic_button_off">MİKROFONU AÇ</string>
+    <string name="mic_button_on">DİNLİYOR</string>
+    <string name="status_idle">BEKLEMEDE</string>
+    <string name="status_listening">DİNLİYOR</string>
+    <string name="status_thinking">DÜŞÜNÜYOR</string>
+    <string name="status_speaking">KONUŞUYOR</string>
+    <string name="hint_text_input">Friday\'e yaz…</string>
+    <string name="send_button">GÖNDER</string>
+    <string name="settings_gemini_key">Gemini API Anahtarı</string>
+    <string name="settings_gemini_key_hint">aistudio.google.com/apikey adresinden alınır</string>
+    <string name="settings_voice">Friday\'in Sesi</string>
+    <string name="settings_save">KAYDET</string>
+    <string name="permission_required">Friday\'in çalışması için mikrofon iznine ihtiyacı var.</string>
+</resources>
